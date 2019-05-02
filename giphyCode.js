@@ -12,6 +12,12 @@ $(document).ready(function () {
 
     };
 
+    var gifDiv = "";
+    var rating = "";
+    var p = "";
+    var cityImage = "";
+
+
     $("#button button").on("click", function () {
         var travelCity = $(this).attr("city");
 
@@ -26,16 +32,16 @@ $(document).ready(function () {
                 var results = response.data;
 
                 for (var i = 0; i < results.length; i++) {
-                    var gifDiv = $("<div>");
+                    gifDiv = $("<div>");
 
                     gifDiv.addClass("city");
 
-                    var rating = results[i].rating;
+                    rating = results[i].rating;
 
-                    var p = $("<p>").text("Rating: " + rating);
+                    p = $("<p>").text("Rating: " + rating);
 
-                    var cityImage = $("<img>");
-                    cityImage.attr("src", results[i].images.fixed_height.url);
+                    cityImage = $("<img>");
+                    cityImage.attr("src", results[i].images.fixed_height_still.url);
 
                     gifDiv.prepend(cityImage);
                     gifDiv.prepend(p);
