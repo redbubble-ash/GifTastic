@@ -12,12 +12,6 @@ $(document).ready(function () {
 
     };
 
-    var gifDiv = "";
-    var rating = "";
-    var p = "";
-    var cityImage = "";
-
-
     $("#button button").on("click", function () {
         var travelCity = $(this).attr("city");
 
@@ -32,29 +26,47 @@ $(document).ready(function () {
                 var results = response.data;
 
                 for (var i = 0; i < results.length; i++) {
-                    gifDiv = $("<div>");
+                    var gifDiv = $("<div>");
 
                     gifDiv.addClass("city");
 
-                    rating = results[i].rating;
+                    var rating = results[i].rating;
 
-                    p = $("<p>").text("Rating: " + rating);
+                    var p = $("<p>").text("Rating: " + rating);
 
-                    cityImage = $("<img>");
+                    var cityImage = $("<img>");
                     cityImage.attr("src", results[i].images.fixed_height_still.url);
+                    cityImage.attr("data_status", "still")
+                    cityImage.attr("arrayNumber", i)
 
                     gifDiv.prepend(cityImage);
                     gifDiv.prepend(p);
-                    
-                   
+
+
 
                     $("#gifs-appear-here").prepend(gifDiv);
-                
+
 
                 };
 
 
 
+                $(".city").on("click", function () {
+                    console.log("check");
+
+                    // console.log($(this).children("img").attr("arrayNumber"));
+                    var arrayNumber = $(this).children("img").attr("arrayNumber");
+                    if ($(this).children("img").attr("data_status") === "still") {
+                        $(this).children("img").attr("src", results[arrayNumber].images.fixed_height.url);
+                        $(this).children("img").attr("data_status", "animated");
+                    }
+                    else {
+                        $(this).children("img").attr("src", results[arrayNumber].images.fixed_height_still.url);
+                        $(this).children("img").attr("data_status", "still");
+
+                    }
+
+                })
 
 
 
