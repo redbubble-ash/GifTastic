@@ -12,10 +12,10 @@ $(document).ready(function () {
 
     };
 
-    $("button").on("click", function () {
+    $("#button button").on("click", function () {
         var travelCity = $(this).attr("city");
 
-        var queryURL = queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
             travelCity + "&api_key=LHm5r26Y8UndONHQM4SKc1OHY96mKU8U&limit=10";
 
         $.ajax({
@@ -28,6 +28,8 @@ $(document).ready(function () {
                 for (var i = 0; i < results.length; i++) {
                     var gifDiv = $("<div>");
 
+                    gifDiv.addClass("city");
+
                     var rating = results[i].rating;
 
                     var p = $("<p>").text("Rating: " + rating);
@@ -35,10 +37,13 @@ $(document).ready(function () {
                     var cityImage = $("<img>");
                     cityImage.attr("src", results[i].images.fixed_height.url);
 
-                    gifDiv.prepend(p);
                     gifDiv.prepend(cityImage);
+                    gifDiv.prepend(p);
+                    
+                   
 
                     $("#gifs-appear-here").prepend(gifDiv);
+                
 
                 };
 
