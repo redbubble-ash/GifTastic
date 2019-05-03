@@ -87,6 +87,8 @@ $(document).ready(function () {
     $("#submit").on("click", function () {
 
         newCity = $(".form-control").val().trim();
+
+        if (newCity!=""){
         topics.push(newCity);
         // console.log(topics);
         $("#button").append("<button city=" + newCity + ">" + newCity + "</button>" + " ");
@@ -94,6 +96,7 @@ $(document).ready(function () {
         // clickCity();
 
         $("#button button").on("click", clickCity);
+        }
 
     })
 
