@@ -2,6 +2,20 @@
 $(document).ready(function () {
 
     var topics = ["Dubai", "Beijing", "Shanghai", "Hongkong", "Sydney", "Moscow", "London", "Seattle", "New York", "Rome", "Miami", "Barcelona", "Paris"];
+    var newCity = "";
+
+    // when submit button is clicked, get input value and push to the array then clear input box;
+
+    $("#submit").on("click", function () {
+
+
+        newCity = $(".form-control").val().trim();
+        topics.push(newCity);
+        $(".form-control").val('');
+        console.log(topics);
+
+    })
+
 
     for (i = 0; i < topics.length; i++) {
 
@@ -68,15 +82,10 @@ $(document).ready(function () {
 
                 })
 
-
-
-
             });
 
-
-
-
-
     })
+
+
 
 })
