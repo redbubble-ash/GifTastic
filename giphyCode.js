@@ -4,29 +4,23 @@ $(document).ready(function () {
     var topics = ["Dubai", "Beijing", "Shanghai", "Hongkong", "Sydney", "Moscow", "London", "Seattle", "New York", "Rome", "Miami", "Barcelona", "Paris"];
     var newCity = "";
 
+
     // when submit button is clicked, get input value and push to the array then clear input box;
 
-    $("#submit").on("click", function () {
 
-
-        newCity = $(".form-control").val().trim();
-        topics.push(newCity);
-        $(".form-control").val('');
-        console.log(topics);
-
-    })
 
 
     for (i = 0; i < topics.length; i++) {
+        // console.log(topics)
 
         $("#button").append("<button city=" + topics[i] + ">" + topics[i] + "</button>" + " ");
 
-
-
-
     };
 
-    $("#button button").on("click", function () {
+
+
+    function clickCity() {
+
         var travelCity = $(this).attr("city");
 
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -66,7 +60,7 @@ $(document).ready(function () {
 
 
                 $(".city").on("click", function () {
-                    console.log("check");
+                    // console.log("check");
 
                     // console.log($(this).children("img").attr("arrayNumber"));
                     var arrayNumber = $(this).children("img").attr("arrayNumber");
@@ -84,7 +78,27 @@ $(document).ready(function () {
 
             });
 
+
+    }
+
+
+    $("#button button").on("click", clickCity);
+
+    $("#submit").on("click", function () {
+
+        newCity = $(".form-control").val().trim();
+        topics.push(newCity);
+        // console.log(topics);
+        $("#button").append("<button city=" + newCity + ">" + newCity + "</button>" + " ");
+        $(".form-control").val(''); //clear the input box
+        // clickCity();
+
+        $("#button button").on("click", clickCity);
+
     })
+
+
+   
 
 
 
