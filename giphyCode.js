@@ -5,10 +5,7 @@ $(document).ready(function () {
     var newCity = "";
 
 
-    // when submit button is clicked, get input value and push to the array then clear input box;
-
-
-
+    //create buttons for each city in the topics array
 
     for (i = 0; i < topics.length; i++) {
         // console.log(topics)
@@ -20,6 +17,8 @@ $(document).ready(function () {
 
 
     function clickCity() {
+
+        $("#gifs-appear-here").empty();
 
         var travelCity = $(this).attr("city");
 
@@ -58,7 +57,7 @@ $(document).ready(function () {
                 };
 
 
-
+                // when click on the gif image
                 $(".city").on("click", function () {
                     // console.log("check");
 
@@ -88,20 +87,20 @@ $(document).ready(function () {
 
         newCity = $(".form-control").val().trim();
 
-        if (newCity!=""){
-        topics.push(newCity);
-        // console.log(topics);
-        $("#button").append("<button city=" + newCity + ">" + newCity + "</button>" + " ");
-        $(".form-control").val(''); //clear the input box
-        // clickCity();
+        if (newCity != "") {
+            topics.push(newCity);
+            // console.log(topics);
+            $("#button").append("<button city=" + newCity + ">" + newCity + "</button>" + " ");
+            $(".form-control").val(''); //clear the input box
+            // clickCity();
 
-        $("#button button").on("click", clickCity);
+            $("#button button[city='" + newCity + "']").on("click", clickCity); // *** remember how to select by attribute button[city="newcity"],(no space between element tag and attribute and use "''")
+            console.log(newCity);
         }
 
     })
 
 
-   
 
 
 
