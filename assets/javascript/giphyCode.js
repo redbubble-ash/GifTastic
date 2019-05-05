@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
 
-    var topics = ["Dubai", "Beijing", "Shanghai", "Hongkong", "Sydney", "Moscow", "London", "Seattle", "New York", "Rome", "Miami", "Barcelona", "Paris"];
+    var topics = ["Beijing", "Tokyo", "Chicago", "Hongkong", "Sydney", "Moscow", "London", "Seattle", "New York", "Rome", "Miami", "Oahu", "Paris"];
     var newCity = "";
 
 
