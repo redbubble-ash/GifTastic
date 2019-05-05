@@ -16,14 +16,32 @@ body{
     background-image: url("../images/travel.jpg");
     margin: auto;
     padding: 10px;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: 100%;
+}
+
+header{
+    color: bisque;
+    font-size: 60px;
+    font-family: 'Black And White Picture', sans-serif;
+    font-weight: bold;
+    margin-right: 50px;
 }
 
 
 button{
-    background-color: green;
     color:white;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(94, 160, 96); /* Green */
+    border: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 4px 2px;
+    cursor: pointer;
+
 }
 
 .city{
@@ -38,4 +56,31 @@ img{
 
 .form-control{
     width: 50% !important;
+}
+
+.row{
+    margin-right: 0px;
+}
+
+#submit{
+
+    background-image: url("../images/tenor.gif");
+    margin: auto;
+    background-repeat:no-repeat repeat;
+    background-size: 100%;
+    padding:20px;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+#addItem p{
+    color: lightgreen;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+p{
+    color: wheat;
 }
