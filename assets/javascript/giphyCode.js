@@ -38,8 +38,10 @@ $(document).ready(function () {
                     gifDiv.addClass("city");
 
                     var rating = results[i].rating;
+                    var title = results[i].title
 
-                    var p = $("<p>").text("Rating: " + rating);
+                    var p1 = $("<p>").text("Rating: " + rating);
+                    var p2 = $("<p>").text("title: " + title);
 
                     var cityImage = $("<img>");
                     cityImage.attr("src", results[i].images.fixed_height_still.url);
@@ -47,7 +49,8 @@ $(document).ready(function () {
                     cityImage.attr("arrayNumber", i)
 
                     gifDiv.prepend(cityImage);
-                    gifDiv.prepend(p);
+                    gifDiv.prepend(p1);
+                    gifDiv.prepend(p2);
 
 
 
